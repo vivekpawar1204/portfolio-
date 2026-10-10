@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek M. Pawar - L1 Technical Support Executive & Linux Support</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for technical & UI icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-main: #0a0f1d;        /* Deep slate background */
+            --bg-card: #131c31;        /* Card background */
+            --bg-card-hover: #1b2744;  /* Card hover state */
+            --accent: #38bdf8;         /* Cyan/sky blue accent */
+            --accent-subtle: rgba(56, 189, 248, 0.12);
+            --border-color: #1e2d4a;    /* Subtle border */
+            --text-primary: #f1f5f9;   /* Bright white text */
+            --text-secondary: #94a3b8; /* Muted gray text */
+            --text-muted: #64748b;     /* Extra muted text */
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --max-width: 760px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 15px;
+            padding-bottom: 50px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        /* Top Navigation Header */
+        header.nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+
+        .brand-logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+
+        .brand-logo span {
+            color: var(--accent);
+        }
+
+        .location-pill {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            background: var(--accent-subtle);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding: 10px 0 24px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(34, 197, 94, 0.1);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            width: fit-content;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #22c55e;
+        }
+
+        .hero-name {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.8px;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        .hero-title {
+            font-size: 1.05rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .quick-location {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 2px;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none !important;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #080d1a;
+        }
+
+        .btn-primary:active, .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-card);
+            color: var(--text-primary);
+            border-color: var(--border-color);
+        }
+
+        .btn-secondary:active, .btn-secondary:hover {
+            background-color: var(--bg-card-hover);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        /* Section Styles */
+        .section {
+            margin-top: 28px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+        }
+
+        .section-header i {
+            color: var(--accent);
+            font-size: 1.05rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 14px;
+            transition: border-color 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(56, 189, 248, 0.35);
+        }
+
+        .summary-text {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        /* Technical Skills Section */
+        .skills-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .skill-group-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-badge {
+            background-color: rgba(30, 45, 74, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.18);
+            color: var(--text-primary);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .skill-badge:hover {
+            background-color: var(--accent-subtle);
+            border-color: var(--accent);
+        }
+
+        /* Experience Timeline */
+        .exp-header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .exp-role {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .exp-company {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.92rem;
+            margin-top: 2px;
+        }
+
+        .exp-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.55;
+        }
+
+        .bullet-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            top: -1px;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Project Card */
+        .project-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .project-badge {
+            font-size: 0.7rem;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            margin-bottom: 12px;
+        }
+
+        /* Education & Certifications Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .action-buttons {
+                display: flex;
+            }
+        }
+
+        .edu-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .edu-degree {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .edu-school {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .edu-year {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .cert-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .cert-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(239, 68, 68, 0.12);
+            color: #ef4444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* Contact Box / Footer */
+        .contact-card {
+            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 24px 18px;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 18px 0;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            background: rgba(30, 45, 74, 0.4);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            width: 100%;
+            max-width: 320px;
+            justify-content: center;
+        }
+
+        .contact-item i {
+            color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 36px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.78rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Top Navbar -->
+        <header class="nav-header">
+            <div class="brand-logo">VIVEK<span>.PAWAR</span></div>
+            <div class="location-pill">
+                <i class="fa-solid fa-location-dot" style="color: var(--accent);"></i> Pune / Nashik
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="status-badge">
+                <span class="status-dot"></span> Open to L1 Support Roles in Pune
+            </div>
+            <div>
+                <h1 class="hero-name">Vivek M. Pawar</h1>
+                <p class="hero-title">L1 Technical Support Executive • Linux & Systems Support</p>
+                <p class="quick-location">
+                    <i class="fa-solid fa-map-pin"></i> Nashik, MH &nbsp;|&nbsp; Preferred: Pune
+                </p>
+            </div>
+
+            <!-- Quick Action Touch Targets -->
+            <div class="action-buttons">
+                <a href="tel:+917028360554" class="btn btn-primary">
+                    <i class="fa-solid fa-phone"></i> Call
+                </a>
+                <a href="mailto:pawarvivek412@gmail.com" class="btn btn-secondary">
+                    <i class="fa-solid fa-envelope"></i> Email
+                </a>
+                <a href="https://linkedin.com/in/vivekpawar12" target="_blank" class="btn btn-secondary">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </section>
+
+        <!-- Professional Summary -->
+        <section class="section">
+            <div class="section-header">
+                <i class="fa-solid fa-user-check"></i> Professional Summary
+            </div>
+            <div class="card">
+                <p class="summary-text">
+                    Customer-focused and detail-oriented L1 Technical Support Executive with a <strong>Master of Computer Applications (MCA)</strong> degree. Skilled in desktop and server troubleshooting, ticketing workflows, and system log diagnostics. Combines practical support experience with strong Linux system administration knowledge (<strong>RHEL/CentOS</strong>), Bash shell scripting, and core networking fundamentals. Adept at resolving technical inquiries within strict SLAs.
+                </p>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="section">
+            <div class="section-header">
+                <i class="fa-solid fa-microchip"></i> Technical Skills
+            </div>
+            <div class="card skills-grid">
+                <!-- Group 1 -->
+                <div>
+                    <div class="skill-group-title"><i class="fa-solid fa-desktop"></i> Operating Systems</div>
+                    <div class="tag-container">
+                        <span class="skill-badge">RHEL</span>
+                        <span class="skill-badge">CentOS</span>
+                        <span class="skill-badge">Ubuntu</span>
+                        <span class="skill-badge">Windows 10/11</span>
+                        <span class="skill-badge">Windows Server</span>
+                    </div>
+                </div>
+
+                <!-- Group 2 -->
+                <div>
+                    <div class="skill-group-title"><i class="fa-solid fa-sliders"></i> System Administration</div>
+                    <div class="tag-container">
+                        <span class="skill-badge">User & Group Management</span>
+                        <span class="skill-badge">LVM</span>
+                        <span class="skill-badge">File System ACLs</span>
+                        <span class="skill-badge">SELinux</span>
+                        <span class="skill-badge">Swap Space</span>
+                        <span class="skill-badge">YUM / RPM Package Management</span>
+                    </div>
+                </div>
+
+                <!-- Group 3 -->
+                <div>
+                    <div class="skill-group-title"><i class="fa-solid fa-network-wired"></i> Networking & Services</div>
+                    <div class="tag-container">
+                        <span class="skill-badge">DNS & DHCP</span>
+                        <span class="skill-badge">NTP</span>
+                        <span class="skill-badge">Apache (HTTPD)</span>
+                        <span class="skill-badge">SSH</span>
+                        <span class="skill-badge">Firewalld Rules</span>
+                        <span class="skill-badge">TCP/IP</span>
+                        <span class="skill-badge">Ping / Traceroute / Netstat</span>
+                    </div>
+                </div>
+
+                <!-- Group 4 -->
+                <div>
+                    <div class="skill-group-title"><i class="fa-solid fa-terminal"></i> Scripting & Operations</div>
+                    <div class="tag-container">
+                        <span class="skill-badge">Bash Shell Scripting</span>
+                        <span class="skill-badge">Cron Jobs</span>
+                        <span class="skill-badge">System Monitoring (top, htop, sar, vmstat)</span>
+                        <span class="skill-badge">Log Analysis (journalctl)</span>
+                    </div>
+                </div>
+
+                <!-- Group 5 -->
+                <div>
+                    <div class="skill-group-title"><i class="fa-solid fa-headset"></i> Tools & Support</div>
+                    <div class="tag-container">
+                        <span class="skill-badge">Jira / ServiceNow (Concepts)</span>
+                        <span class="skill-badge">VMware Workstation</span>
+                        <span class="skill-badge">AnyDesk / TeamViewer</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="section">
+            <div class="section-header">
+                <i class="fa-solid fa-briefcase"></i> Professional Experience
+            </div>
+            <div class="card">
+                <div class="exp-header">
+                    <span class="exp-role">Technical Support Executive</span>
+                    <span class="exp-company">Tecsys Solutions Pvt. Ltd.</span>
+                    <span class="exp-date"><i class="fa-regular fa-clock"></i> Primary Point of Contact (L1 Support)</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Act as the primary point of contact for L1 technical assistance, resolving hardware, software, OS, and connectivity inquiries.</li>
+                    <li>Log, classify, and track support requests using ticketing systems, ensuring strict adherence to SLA response and resolution targets.</li>
+                    <li>Inspect system event logs and verify service statuses to perform initial root-cause analysis on technical incidents.</li>
+                    <li>Escalate complex technical or application issues to L2/L3 engineering teams with clear diagnostic notes and log attachments.</li>
+                    <li>Assist end-users with software setup, user access configuration, remote desktop troubleshooting, and network connectivity setup.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Technical Project -->
+        <section class="section">
+            <div class="section-header">
+                <i class="fa-solid fa-diagram-project"></i> Key Technical Project
+            </div>
+            <div class="card">
+                <div class="project-title">
+                    <span>Linux System Monitoring & Diagnostic Tool</span>
+                    <span class="project-badge">Bash Script</span>
+                </div>
+                <p class="project-desc">
+                    Developed a custom Bash script to monitor CPU utilization, memory usage, disk storage thresholds, and running system services on Linux servers.
+                </p>
+                <ul class="bullet-list">
+                    <li>Automated periodic health checks and configured automated threshold alerts.</li>
+                    <li>Directed system logs to aid fast issue resolution and server health tracking.</li>
+                </ul>
+                <div class="tag-container" style="margin-top: 12px;">
+                    <span class="skill-badge">Bash</span>
+                    <span class="skill-badge">Linux Logs</span>
+                    <span class="skill-badge">Cron Jobs</span>
+                    <span class="skill-badge">System Health</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section class="section">
+            <div class="section-header">
+                <i class="fa-solid fa-graduation-cap"></i> Education & Certifications
+            </div>
+            <div class="grid-2">
+                <!-- Education Card -->
+                <div class="card edu-item">
+                    <div style="font-size: 0.78rem; color: var(--accent); font-weight: 600; text-transform: uppercase;">Education</div>
+                    <div class="edu-degree">Master of Computer Applications (MCA)</div>
+                    <div class="edu-school">Sandip Foundation, Savitribai Phule Pune University</div>
+                    <div class="edu-year"><i class="fa-regular fa-calendar"></i> 2024 – 2026</div>
+                </div>
+
+                <div class="card edu-item">
+                    <div style="font-size: 0.78rem; color: var(--accent); font-weight: 600; text-transform: uppercase;">Education</div>
+                    <div class="edu-degree">BBA in Computer Applications</div>
+                    <div class="edu-school">CMCS College, Savitribai Phule Pune University</div>
+                    <div class="edu-year"><i class="fa-regular fa-calendar"></i> 2021 – 2024</div>
+                </div>
+            </div>
+
+            <!-- RHCSA Certification -->
+            <div class="card cert-card" style="margin-top: 12px;">
+                <div class="cert-icon">
+                    <i class="fa-brands fa-redhat"></i>
+                </div>
+                <div>
+                    <div style="font-size: 0.78rem; color: #ef4444; font-weight: 600; text-transform: uppercase;">Certification</div>
+                    <div style="font-size: 0.95rem; font-weight: 700;">Red Hat Certified System Administrator (RHCSA)</div>
+                    <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 2px;">In Progress / Training Completed</div>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="card" style="margin-top: 12px;">
+                <div style="font-size: 0.85rem; font-weight: 600; color: var(--accent); margin-bottom: 8px;">
+                    <i class="fa-solid fa-language"></i> Languages Known
+                </div>
+                <div class="tag-container">
+                    <span class="skill-badge">English</span>
+                    <span class="skill-badge">Hindi</span>
+                    <span class="skill-badge">Marathi</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Footer -->
+        <section class="section">
+            <div class="contact-card">
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 6px;">Get In Touch</h3>
+                <p style="font-size: 0.88rem; color: var(--text-secondary);">Looking forward to discussing L1 Technical Support & Systems opportunities in Pune/Nashik.</p>
+                
+                <div class="contact-links">
+                    <a href="tel:+917028360554" class="contact-item">
+                        <i class="fa-solid fa-phone"></i> +91 7028360554
+                    </a>
+                    <a href="mailto:pawarvivek412@gmail.com" class="contact-item">
+                        <i class="fa-solid fa-envelope"></i> pawarvivek412@gmail.com
+                    </a>
+                    <a href="https://linkedin.com/in/vivekpawar12" target="_blank" class="contact-item">
+                        <i class="fa-brands fa-linkedin"></i> linkedin.com/in/vivekpawar12
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© <span id="current-year"></span> Vivek M. Pawar. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
